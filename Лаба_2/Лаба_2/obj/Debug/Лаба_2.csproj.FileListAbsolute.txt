@@ -1,0 +1,2 @@
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.csprojResolveAssemblyReference.cache
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.csproj.CoreCompileInputs.cache

@@ -1,0 +1,9 @@
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\bin\Debug\Лаба_2.exe
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\bin\Debug\Лаба_2.pdb
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.csproj.CoreCompileInputs.cache
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.exe
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.pdb
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.csprojResolveAssemblyReference.cache
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.csproj.GenerateResource.cache
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.MainFormIndystry.resources
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.ChangeItemMainForm.resources

@@ -1,0 +1,6 @@
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Indastry.csprojResolveAssemblyReference.cache
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Indastry.csproj.CoreCompileInputs.cache
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\bin\Debug\Лаба_2.exe
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\bin\Debug\Лаба_2.pdb
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.exe
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.pdb
