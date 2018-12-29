@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MyIndustry.Model
 {
-    public sealed class Industry : iIndustry
+    public sealed class Industry : IIndustry
     {
         public Industry(string title)
         {
@@ -13,19 +13,29 @@ namespace MyIndustry.Model
         }
 
         public string Title { get; }
+        int countMetall = 1;
+        int countWood = 1;
 
         public ICollection<IPlant> Plants { get; private set; } = new List<IPlant>();
 
-        public void AddItem(string title, int power)
-
+        public void AddItemMetalWorking( int power)
         {
-                var plant = new Plant(title, power);
+                var plant = new MetalWorking(countMetall, power);
                 Plants.Add(plant);
-                
+            countMetall++;
         }
 
-        public void RemoveItem(IPlant plant)
-        { 
+        public void AddItemWoodWorking(int power)
+        {
+            var plant = new WoodWorking(countWood, power);
+            Plants.Add(plant);
+            countWood++;
+        }
+
+        public void RemoveItem(string title)
+        {
+
+            var plant = SearchItem(title);
             Plants.Remove(plant);
         }
 
@@ -34,10 +44,10 @@ namespace MyIndustry.Model
             return (List<IPlant>)Plants;
         }
 
-        public void ChangeItem(IPlant plant,string title, int power)
+        public void ChangeItem(string title, int power)
         {
-            Plants.Remove(plant);
-            AddItem(title, power);
+            var plant = SearchItem(title);
+            plant.Power = power;
         }
 
         public IPlant SearchItem(string title)

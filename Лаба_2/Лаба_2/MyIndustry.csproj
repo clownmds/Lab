@@ -42,16 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IIndustry.cs" />
     <Compile Include="MVVM\ChangeItemMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\iIndustry.cs" />
     <Compile Include="Interfaces\IPlant.cs" />
     <Compile Include="Interfaces\IProduct.cs" />
     <Compile Include="MVVM\MainFormIndystry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MVVM\MainFormViewModelChangeItem.cs" />
     <Compile Include="MVVM\MainFormViewModelIndustry.cs" />
     <Compile Include="MenuPlant.cs" />
     <Compile Include="Model\Industry.cs" />

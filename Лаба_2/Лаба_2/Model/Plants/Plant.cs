@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace MyIndustry.Model
 {
-    public class Plant : IPlant
+    public abstract class Plant : IPlant
     {
-        public Plant(string title,int power)
+        public Plant(int power)
         {
-            Title = title;
+            Title = "";
             Power = power;
         }
 
@@ -16,9 +16,9 @@ namespace MyIndustry.Model
 
         public ICollection<IProduct> Products { get; set; }
 
-     /*   public abstract void Delete();
+        public abstract void Delete(IProduct product);
         public abstract void ViewProducts();
         public abstract void ChangeProduct();
-        public abstract void Add();*/
+        public abstract void Add(IProduct product);
     }
 }

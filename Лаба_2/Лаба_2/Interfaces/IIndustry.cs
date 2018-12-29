@@ -1,8 +1,7 @@
 ﻿namespace MyIndustry.Interfaces
 {
-    public interface IPlant
+    public interface IIndustry
     {
         string Title { get; }
-        int Power{ get; set; }
     }
 }

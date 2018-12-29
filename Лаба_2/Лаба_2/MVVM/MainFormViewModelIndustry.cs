@@ -36,21 +36,24 @@ namespace MyIndustry
             }
         }
 
-        public void Add(string title, int power)
+        public void AddMetalWorking( int power)
         {
-            _industry.AddItem(title, power);
+            _industry.AddItemMetalWorking( power);
+        }
+
+        public void AddWoodWorking(int power)
+        {
+            _industry.AddItemWoodWorking(power);
         }
 
         public void Remove(string title)
         {
-            var plant = _industry.SearchItem(title);
-            _industry.RemoveItem(plant);
+            _industry.RemoveItem(title);
         }
 
-        public void Change(string title, string newTitle, int power)
-        {
-            var plant = _industry.SearchItem(title);
-            _industry.ChangeItem(plant, newTitle, power);
+        public void Change(string title, int power)
+        {           
+            _industry.ChangeItem(title, power);
         }
 
         [NotifyPropertyChangedInvocator]

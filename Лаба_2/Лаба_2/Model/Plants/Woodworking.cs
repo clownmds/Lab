@@ -6,28 +6,29 @@ using MyIndustry.Interfaces;
 
 namespace MyIndustry.Model
 {
-    public class WoodWorking //:Plant
+    public class WoodWorking :Plant
     {
-        public WoodWorking(string title, int power)
+        public WoodWorking(int number, int power) : base( power)
         {
-            Title = title;
+            Title = "Деревообрабатывающий цех №"+number.ToString();
             Power = power;
             Products = new List<IProduct>();
         }
 
-        public string Title { get; set; }
-        public int Power { get; set; }
-
-        public ICollection<IProduct> Products { get; set; }
-
-         public void Add(IProduct product)
+        public override void Add(IProduct product)
         {
-        Products.Add(product);
+            Products.Add(product);
         }
 
-        public void Delete(IProduct product)
+        public override void Delete(IProduct product)
         {
-        Products.Remove(product);
+            Products.Remove(product);
         }
+
+        public override void ViewProducts()
+        { }
+
+        public override void ChangeProduct()
+        { }
     }
 }
