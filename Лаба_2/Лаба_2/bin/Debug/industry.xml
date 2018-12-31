@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Industry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Title>Завод</Title>
+  <Plants>
+    <Plant xsi:type="MetalWorking">
+      <Title>Металлообрабатывающий цех №1</Title>
+      <Power>10000</Power>
+      <Products />
+    </Plant>
+    <Plant xsi:type="MetalWorking">
+      <Title>Металлообрабатывающий цех №2</Title>
+      <Power>10</Power>
+      <Products />
+    </Plant>
+    <Plant xsi:type="MetalWorking">
+      <Title>Металлообрабатывающий цех №3</Title>
+      <Power>8</Power>
+      <Products />
+    </Plant>
+    <Plant xsi:type="MetalWorking">
+      <Title>Металлообрабатывающий цех №1</Title>
+      <Power>5</Power>
+      <Products />
+    </Plant>
+  </Plants>
+</Industry>

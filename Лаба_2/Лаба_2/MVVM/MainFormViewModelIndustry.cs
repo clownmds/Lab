@@ -7,6 +7,8 @@ using System.ComponentModel;
 using MyIndustry.Model;
 using MyIndustry.Interfaces;
 using TestWindowsFormsApp.Annotations;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace MyIndustry
 {
@@ -14,12 +16,19 @@ namespace MyIndustry
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private readonly Industry _industry;
+        private Industry _industry;
 
         private string _title;
 
-        public ICollection<IPlant> Plants => _industry.Plants;
-
+        public List<Plant> Plants 
+        {
+            get => _industry.Plants;
+            private set
+            {
+                Plants = value;
+                OnPropertyChanged(nameof(Plants));
+    }
+}
         public MainFormViewModelIndustry(Industry industry)
         {
             _industry = industry;
@@ -39,21 +48,43 @@ namespace MyIndustry
         public void AddMetalWorking( int power)
         {
             _industry.AddItemMetalWorking( power);
+            OnPropertyChanged(nameof(Plants));
         }
 
         public void AddWoodWorking(int power)
         {
             _industry.AddItemWoodWorking(power);
+            OnPropertyChanged(nameof(Plants));
         }
 
         public void Remove(string title)
         {
             _industry.RemoveItem(title);
+            OnPropertyChanged(nameof(Plants));
         }
 
         public void Change(string title, int power)
         {           
             _industry.ChangeItem(title, power);
+            OnPropertyChanged(nameof(Plants));
+        }
+
+        public void Deserialaze()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(Industry));
+            using (FileStream fs = new FileStream("industry.xml", FileMode.OpenOrCreate))
+            {
+                 _industry = (Industry)formatter.Deserialize(fs);
+            }
+            
+        }
+
+        public void Serialaze()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(Industry));
+            using (FileStream fs = new FileStream("industry.xml", FileMode.OpenOrCreate))
+            { formatter.Serialize(fs, _industry);
+            }
         }
 
         [NotifyPropertyChangedInvocator]

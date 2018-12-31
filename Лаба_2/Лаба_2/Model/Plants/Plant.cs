@@ -5,6 +5,9 @@ namespace MyIndustry.Model
 {
     public abstract class Plant : IPlant
     {
+        public Plant()
+        { }
+
         public Plant(int power)
         {
             Title = "";
@@ -14,11 +17,11 @@ namespace MyIndustry.Model
         public string Title { get; set; }
         public int Power { get; set; }
 
-        public ICollection<IProduct> Products { get; set; }
+        public List<Product> Products { get; set; }
 
-        public abstract void Delete(IProduct product);
+        public abstract void Delete(Product product);
         public abstract void ViewProducts();
         public abstract void ChangeProduct();
-        public abstract void Add(IProduct product);
+        public abstract void Add(Product product);
     }
 }

@@ -24,6 +24,8 @@ namespace MyIndustry
 
         private string tempTitle;
         private int tempPower;
+        
+        public static MainFormIndystry MFI { get; set; }
 
         private void _model_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -33,7 +35,7 @@ namespace MyIndustry
                 RefreshList();
         }
          
-        private void RefreshList()
+        public void RefreshList()
         {
             plantListBox.Items.Clear();
             powerListBox.Items.Clear();
@@ -49,11 +51,14 @@ namespace MyIndustry
             InitializeComponent();
             Model = model;
             titleIndustry.Text = Model.Title.ToString();
+            MFI = this;
         }
 
         
         private ListBox plantListBox;
         private ListBox powerListBox;
+        private Button SerialazeButton;
+        private Button DeserialazeButton;
         private Button changeButton;
         private Button deleteButton;
         private Button exitButton;
@@ -98,25 +103,34 @@ namespace MyIndustry
         private void addMetalWorkingButton_Click(object sender, EventArgs e)
         {
             if ( tempPower!=0)
-                Model.AddMetalWorking( (int)tempPower);            
-            RefreshList();
+                Model.AddMetalWorking( (int)tempPower);  
         }
 
         private void addWoodWorkingButton_Click(object sender, EventArgs e)
         {
             if ( tempPower!=0)
                 Model.AddWoodWorking((int)tempPower);
-            RefreshList();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             Model.Remove(tempTitle);
-            RefreshList();
+        }
+
+        private void SerialazeButton_Click(object sender, EventArgs e)
+        {
+            Model.Serialaze();
+        }
+
+        private void DeserialazeButton_Click(object sender, EventArgs e)
+        {
+            Model.Deserialaze();
         }
 
         private void InitializeComponent()
         {
+            this.SerialazeButton = new System.Windows.Forms.Button();
+            this.DeserialazeButton = new System.Windows.Forms.Button();
             this.viewButton = new System.Windows.Forms.Button();
             this.addMetalWorkingButton = new System.Windows.Forms.Button();
             this.plantListBox = new System.Windows.Forms.ListBox();
@@ -132,6 +146,26 @@ namespace MyIndustry
             this.label2 = new System.Windows.Forms.Label();
             this.addWoodWorkingButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // SerialazeButton
+            // 
+            this.SerialazeButton.Location = new System.Drawing.Point(167, 13);
+            this.SerialazeButton.Name = "SerialazeButton";
+            this.SerialazeButton.Size = new System.Drawing.Size(95, 23);
+            this.SerialazeButton.TabIndex = 0;
+            this.SerialazeButton.Text = "Сериализовать";
+            this.SerialazeButton.UseVisualStyleBackColor = true;
+            this.SerialazeButton.Click += new System.EventHandler(this.SerialazeButton_Click);
+            // 
+            // DeserialazeButton
+            // 
+            this.DeserialazeButton.Location = new System.Drawing.Point(287, 13);
+            this.DeserialazeButton.Name = "DeserialazeButton";
+            this.DeserialazeButton.Size = new System.Drawing.Size(106, 23);
+            this.DeserialazeButton.TabIndex = 1;
+            this.DeserialazeButton.Text = "Десериализация";
+            this.DeserialazeButton.UseVisualStyleBackColor = true;
+            this.DeserialazeButton.Click += new System.EventHandler(this.DeserialazeButton_Click);
             // 
             // viewButton
             // 
@@ -264,6 +298,8 @@ namespace MyIndustry
             // MainFormIndystry
             // 
             this.ClientSize = new System.Drawing.Size(448, 318);
+            this.Controls.Add(this.DeserialazeButton);
+            this.Controls.Add(this.SerialazeButton);
             this.Controls.Add(this.addWoodWorkingButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.addPowerTextBox);
@@ -286,6 +322,11 @@ namespace MyIndustry
         }
 
         private void MainFormIndystry_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,4 +1,7 @@
 ﻿using System.Windows.Forms;
+using System.Xml.Serialization;
+using MyIndustry.Model;
+using System.IO;
 
 namespace MyIndustry
 {
@@ -6,11 +9,11 @@ namespace MyIndustry
     {
         static void Main(string[] args)
         {
+            var _industry =new Industry("Завод") ;
+            _industry.AddItemMetalWorking(10000);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var _industry = new Model.Industry("Завод");
-            _industry.AddItemMetalWorking( 20000);
-            Application.Run(new MainFormIndystry(new MainFormViewModelIndustry(_industry)));            
+            Application.Run(new MainFormIndystry(new MainFormViewModelIndustry(_industry)));
         }
     }
 }

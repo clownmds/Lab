@@ -8,19 +8,22 @@ namespace MyIndustry.Model
 {
     public class WoodWorking :Plant
     {
+        public WoodWorking()
+        { }
+
         public WoodWorking(int number, int power) : base( power)
         {
             Title = "Деревообрабатывающий цех №"+number.ToString();
             Power = power;
-            Products = new List<IProduct>();
+            Products = new List<Product>();
         }
 
-        public override void Add(IProduct product)
+        public override void Add(Product product)
         {
             Products.Add(product);
         }
 
-        public override void Delete(IProduct product)
+        public override void Delete(Product product)
         {
             Products.Remove(product);
         }

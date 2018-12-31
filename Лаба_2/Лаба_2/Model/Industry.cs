@@ -2,26 +2,34 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace MyIndustry.Model
 {
-    public sealed class Industry : IIndustry
+    [XmlInclude(typeof(MetalWorking))]
+    [XmlInclude(typeof(WoodWorking))]
+    [Serializable]
+    public sealed class Industry : IIndustry 
     {
+        public string Title { get; set; }
+
+        int countMetall = 1;
+        int countWood = 1;
+
+        public Industry()
+        { }
+
         public Industry(string title)
         {
             Title = title ?? throw new ArgumentNullException(nameof(title));
         }
-
-        public string Title { get; }
-        int countMetall = 1;
-        int countWood = 1;
-
-        public ICollection<IPlant> Plants { get; private set; } = new List<IPlant>();
+        
+        public List<Plant> Plants { get; private set; } = new List<Plant>();
 
         public void AddItemMetalWorking( int power)
         {
-                var plant = new MetalWorking(countMetall, power);
-                Plants.Add(plant);
+            var plant = new MetalWorking(countMetall, power);
+            Plants.Add(plant);
             countMetall++;
         }
 
@@ -39,9 +47,9 @@ namespace MyIndustry.Model
             Plants.Remove(plant);
         }
 
-        public List<IPlant> ViewItems()
+        public List<Plant> ViewItems()
         {
-            return (List<IPlant>)Plants;
+            return (List<Plant>)Plants;
         }
 
         public void ChangeItem(string title, int power)
@@ -50,7 +58,7 @@ namespace MyIndustry.Model
             plant.Power = power;
         }
 
-        public IPlant SearchItem(string title)
+        public Plant SearchItem(string title)
         {
             var plant = from p in Plants
                         where p.Title == title

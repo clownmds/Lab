@@ -6,14 +6,33 @@ namespace MyIndustry
 {
     public partial class ChangeItemMainForm : Form
     {
-            private MainFormViewModelIndustry Model { get; set;}
+        private MainFormViewModelIndustry _model;
 
+        private MainFormViewModelIndustry Model
+        {
+            get => _model;
+            set
+            {
+                if (_model != null)
+                {
+                    _model.PropertyChanged -= _model_PropertyChanged;
+                }
+                _model = value;
+                _model.PropertyChanged += _model_PropertyChanged;
+            }
+        }
         private string _title;
         private int power;
         private Button okButton;
         private Label label1;
         private Label label3;
         private TextBox changeItemTextBoxPower;
+
+        private void _model_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+             if (e.PropertyName == nameof(MainFormViewModelIndustry.Plants))
+                MainFormIndystry.MFI.RefreshList();
+        }
 
         public ChangeItemMainForm(MainFormViewModelIndustry model,string title)
         {
