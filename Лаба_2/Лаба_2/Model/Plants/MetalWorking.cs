@@ -17,12 +17,12 @@ namespace MyIndustry.Model
             Power = power;
         }
         
-        public override void Add(Product product)
+        public override void Add(IProduct product)
         {
         Products.Add(product);
         }
 
-        public override void Delete(Product product)
+        public override void Delete(IProduct product)
         {
         Products.Remove(product);
         }

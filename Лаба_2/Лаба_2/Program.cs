@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using System.Xml.Serialization;
 using MyIndustry.Model;
 using System.IO;
 

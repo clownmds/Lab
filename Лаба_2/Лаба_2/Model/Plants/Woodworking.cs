@@ -15,15 +15,15 @@ namespace MyIndustry.Model
         {
             Title = "Деревообрабатывающий цех №"+number.ToString();
             Power = power;
-            Products = new List<Product>();
+            Products = new List<IProduct>();
         }
 
-        public override void Add(Product product)
+        public override void Add(IProduct product)
         {
             Products.Add(product);
         }
 
-        public override void Delete(Product product)
+        public override void Delete(IProduct product)
         {
             Products.Remove(product);
         }

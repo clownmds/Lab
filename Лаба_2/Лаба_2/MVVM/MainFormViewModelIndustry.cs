@@ -20,7 +20,7 @@ namespace MyIndustry
 
         private string _title;
 
-        public List<Plant> Plants 
+        public ICollection<IPlant> Plants 
         {
             get => _industry.Plants;
             private set
@@ -69,21 +69,26 @@ namespace MyIndustry
             OnPropertyChanged(nameof(Plants));
         }
 
-        public void Deserialaze()
+        public void Deserialize()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(Industry));
-            using (FileStream fs = new FileStream("industry.xml", FileMode.OpenOrCreate))
+            XmlSerializer formatter = new XmlSerializer(typeof(IndustryDTO));
+            using (FileStream fs = new FileStream("industryDTO.xml", FileMode.OpenOrCreate))
             {
-                 _industry = (Industry)formatter.Deserialize(fs);
+               var  industryDTO = (IndustryDTO)formatter.Deserialize(fs);
+                _industry.Deserialize(industryDTO);
             }
-            
+            OnPropertyChanged(nameof(Plants));
         }
 
-        public void Serialaze()
+        public void Serialize()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(Industry));
-            using (FileStream fs = new FileStream("industry.xml", FileMode.OpenOrCreate))
-            { formatter.Serialize(fs, _industry);
+            var _Plants = new List<Plant>();
+            foreach (Plant p in _industry.Plants)
+                _Plants.Add(p);
+            var industry = new IndustryDTO(_industry.Title, _Plants);
+            XmlSerializer formatter = new XmlSerializer(typeof(IndustryDTO));
+            using (FileStream fs = new FileStream("industryDTO.xml", FileMode.OpenOrCreate))
+            { formatter.Serialize(fs, industry);
             }
         }
 

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IIndustry.cs" />
+    <Compile Include="Model\IndustryDTO.cs" />
     <Compile Include="MVVM\ChangeItemMainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -23,15 +23,13 @@ namespace MyIndustry
         }
 
         private string tempTitle;
-        private int tempPower;
+        private int? tempPower;
         
         public static MainFormIndystry MFI { get; set; }
 
         private void _model_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(MainFormViewModelIndustry.Title))
-                titleIndustry.Text = Model.Title.ToString();
-            else if (e.PropertyName == nameof(MainFormViewModelIndustry.Plants))
+            if (e.PropertyName == nameof(MainFormViewModelIndustry.Plants))
                 RefreshList();
         }
          
@@ -57,8 +55,8 @@ namespace MyIndustry
         
         private ListBox plantListBox;
         private ListBox powerListBox;
-        private Button SerialazeButton;
-        private Button DeserialazeButton;
+        private Button SerializeButton;
+        private Button DeserializeButton;
         private Button changeButton;
         private Button deleteButton;
         private Button exitButton;
@@ -74,6 +72,7 @@ namespace MyIndustry
 
         private void addPowerTextBox_TextChanged(object sender, EventArgs e)
         {
+            if(addPowerTextBox.Text!="")
                 tempPower = int.Parse(addPowerTextBox.Text);
         }
 
@@ -117,20 +116,20 @@ namespace MyIndustry
             Model.Remove(tempTitle);
         }
 
-        private void SerialazeButton_Click(object sender, EventArgs e)
+        private void SerializeButton_Click(object sender, EventArgs e)
         {
-            Model.Serialaze();
+            Model.Serialize();
         }
 
-        private void DeserialazeButton_Click(object sender, EventArgs e)
+        private void DeserializeButton_Click(object sender, EventArgs e)
         {
-            Model.Deserialaze();
+            Model.Deserialize();
         }
 
         private void InitializeComponent()
         {
-            this.SerialazeButton = new System.Windows.Forms.Button();
-            this.DeserialazeButton = new System.Windows.Forms.Button();
+            this.SerializeButton = new System.Windows.Forms.Button();
+            this.DeserializeButton = new System.Windows.Forms.Button();
             this.viewButton = new System.Windows.Forms.Button();
             this.addMetalWorkingButton = new System.Windows.Forms.Button();
             this.plantListBox = new System.Windows.Forms.ListBox();
@@ -147,25 +146,25 @@ namespace MyIndustry
             this.addWoodWorkingButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // SerialazeButton
+            // SerializeButton
             // 
-            this.SerialazeButton.Location = new System.Drawing.Point(167, 13);
-            this.SerialazeButton.Name = "SerialazeButton";
-            this.SerialazeButton.Size = new System.Drawing.Size(95, 23);
-            this.SerialazeButton.TabIndex = 0;
-            this.SerialazeButton.Text = "Сериализовать";
-            this.SerialazeButton.UseVisualStyleBackColor = true;
-            this.SerialazeButton.Click += new System.EventHandler(this.SerialazeButton_Click);
+            this.SerializeButton.Location = new System.Drawing.Point(167, 13);
+            this.SerializeButton.Name = "SerialazeButton";
+            this.SerializeButton.Size = new System.Drawing.Size(95, 23);
+            this.SerializeButton.TabIndex = 0;
+            this.SerializeButton.Text = "Сохранить";
+            this.SerializeButton.UseVisualStyleBackColor = true;
+            this.SerializeButton.Click += new System.EventHandler(this.SerializeButton_Click);
             // 
             // DeserialazeButton
             // 
-            this.DeserialazeButton.Location = new System.Drawing.Point(287, 13);
-            this.DeserialazeButton.Name = "DeserialazeButton";
-            this.DeserialazeButton.Size = new System.Drawing.Size(106, 23);
-            this.DeserialazeButton.TabIndex = 1;
-            this.DeserialazeButton.Text = "Десериализация";
-            this.DeserialazeButton.UseVisualStyleBackColor = true;
-            this.DeserialazeButton.Click += new System.EventHandler(this.DeserialazeButton_Click);
+            this.DeserializeButton.Location = new System.Drawing.Point(287, 13);
+            this.DeserializeButton.Name = "DeserialazeButton";
+            this.DeserializeButton.Size = new System.Drawing.Size(106, 23);
+            this.DeserializeButton.TabIndex = 1;
+            this.DeserializeButton.Text = "Восстановить";
+            this.DeserializeButton.UseVisualStyleBackColor = true;
+            this.DeserializeButton.Click += new System.EventHandler(this.DeserializeButton_Click);
             // 
             // viewButton
             // 
@@ -298,8 +297,8 @@ namespace MyIndustry
             // MainFormIndystry
             // 
             this.ClientSize = new System.Drawing.Size(448, 318);
-            this.Controls.Add(this.DeserialazeButton);
-            this.Controls.Add(this.SerialazeButton);
+            this.Controls.Add(this.DeserializeButton);
+            this.Controls.Add(this.SerializeButton);
             this.Controls.Add(this.addWoodWorkingButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.addPowerTextBox);
@@ -315,19 +314,9 @@ namespace MyIndustry
             this.Controls.Add(this.addMetalWorkingButton);
             this.Controls.Add(this.viewButton);
             this.Name = "MainFormIndystry";
-            this.Load += new System.EventHandler(this.MainFormIndystry_Load);
+           // this.Load += new System.EventHandler(this.MainFormIndystry_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
-        }
-
-        private void MainFormIndystry_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
     }
