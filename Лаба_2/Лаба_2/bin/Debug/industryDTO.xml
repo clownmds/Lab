@@ -8,19 +8,15 @@
     </Plant>
     <Plant xsi:type="MetalWorking">
       <Title>Металлообрабатывающий цех №2</Title>
-      <Power>8</Power>
-    </Plant>
-    <Plant xsi:type="WoodWorking">
-      <Title>Деревообрабатывающий цех №1</Title>
-      <Power>8</Power>
+      <Power>1000</Power>
     </Plant>
     <Plant xsi:type="MetalWorking">
-      <Title>Металлообрабатывающий цех №2</Title>
-      <Power>1</Power>
+      <Title>Металлообрабатывающий цех №3</Title>
+      <Power>1000</Power>
     </Plant>
     <Plant xsi:type="WoodWorking">
       <Title>Деревообрабатывающий цех №1</Title>
-      <Power>9</Power>
+      <Power>1000</Power>
     </Plant>
   </Plants>
 </IndustryDTO>

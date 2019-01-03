@@ -1,23 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using MyIndustry.Model;
+using MyIndustry.Interfaces;
 using TestWindowsFormsApp.Annotations;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace MyIndustry
 {
-    public sealed class MainFormViewModelIndustry : INotifyPropertyChanged
+    public sealed class MainFormViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private readonly Industry _industry;
+        private Industry _industry;
 
         private string _title;
 
-        public MainFormViewModelIndustry(Industry industry)
+        public ICollection<IPlant> Plants 
+        {
+            get => _industry.Plants;
+            private set
+            {
+                Plants = value;
+                OnPropertyChanged(nameof(Plants));
+    }
+}
+        public MainFormViewModel(Industry industry)
         {
             _industry = industry;
             _title = industry.Title;
@@ -31,6 +39,41 @@ namespace MyIndustry
                 _title = value;
                 OnPropertyChanged(nameof(Title));
             }
+        }
+
+        public void AddMetalWorking( int power)
+        {
+            _industry.AddItemMetalWorking( power);
+            OnPropertyChanged(nameof(Plants));
+        }
+
+        public void AddWoodWorking(int power)
+        {
+            _industry.AddItemWoodWorking(power);
+            OnPropertyChanged(nameof(Plants));
+        }
+
+        public void Remove(string title)
+        {
+            _industry.RemoveItem(title);
+            OnPropertyChanged(nameof(Plants));
+        }
+
+        public void Change(string title, int power)
+        {           
+            _industry.ChangeItem(title, power);
+            OnPropertyChanged(nameof(Plants));
+        }
+
+        public void Deserialize()
+        {
+            _industry.Deserialize();            
+            OnPropertyChanged(nameof(Plants));
+        }
+
+        public void Serialize()
+        {
+            _industry.Serialize();
         }
 
         [NotifyPropertyChangedInvocator]

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyIndustry.Interfaces;
+using MyIndustry;
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
@@ -24,6 +24,6 @@ namespace MyIndustry.Model
 
         public string Title { get; set; }
 
-        public List<Plant> Plants { get; private set; } = new List<Plant>();
+        public List<Plant> Plants { get; set; } = new List<Plant>();       
     }
 }

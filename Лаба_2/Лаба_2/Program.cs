@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using MyIndustry.Model;
-using System.IO;
+using MyIndustry.MVVM;
 
 namespace MyIndustry
 {
@@ -8,11 +8,11 @@ namespace MyIndustry
     {
         static void Main(string[] args)
         {
-            var _industry =new Industry("Завод") ;
-            _industry.AddItemMetalWorking(10000);
+            var industry =new Industry("Завод") ;
+            industry.AddItemMetalWorking(10000);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFormIndystry(new MainFormViewModelIndustry(_industry)));
+            Application.Run(new IndustryMainForm(new MainFormViewModel(industry)));
         }
     }
 }

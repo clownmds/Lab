@@ -5,5 +5,5 @@ C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.exe
 C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\Лаба_2.pdb
 C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.csprojResolveAssemblyReference.cache
 C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.csproj.GenerateResource.cache
-C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.MainFormIndystry.resources
-C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.ChangeItemMainForm.resources
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.MVVM.ChangeItemMainForm.resources
+C:\Users\clown\source\repos\Лаба_2\Лаба_2\obj\Debug\MyIndustry.MVVM.IndustryMainForm.resources
